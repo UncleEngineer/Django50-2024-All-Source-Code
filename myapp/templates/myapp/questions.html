@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ชื่อ</th>
+        <th scope="col">อีเมล</th>
+        <th scope="col">หัวข้อ</th>
+        <th scope="col">รายละเอียด</th>
+        <th scope="col">ตอบคำถาม</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for q in questions %}
+    
+      <tr>
+        <td>{{q.name}}</td>
+        <td>{{q.email}}</td>
+        <td>{{q.title}}</td>
+        <td>{{q.detail}}</td>
+        <td><a href="{% url 'answer' q.id %}" class="btn btn-primary">ตอบ</a></td>
+      </tr>
+
+    {% endfor %}
+
+ 
+    </tbody>
+  </table>
+
+
+
+{% endblock content %}

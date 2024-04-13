@@ -1,0 +1,63 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %} สอบถามปัญหากับลุงทางนี้ได้เลยจ้าาาา {% endblock title %}
+
+{% block content %}
+
+    {% comment %} ชื่อผู้ติดต่อ (text) {% endcomment %}
+    {% comment %} email (text) {% endcomment %}
+    {% comment %} หัวข้อ (text) {% endcomment %}
+    {% comment %} รายละเอียด (textarea) {% endcomment %}
+    <br><br>
+    <h2>สอบถามปัญหากับลุงทางนี้ได้เลยจ้าาาา</h2><br>
+    
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="name">ชื่อผู้ติดต่อ</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div><br>
+
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" class="form-control" id="email" name="email">
+            </div><br>
+
+
+            {% comment %}
+            <div class="form-group">
+                <label for="title">หัวข้อ</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div><br>
+            {% endcomment %}
+
+            <div class="form-group">
+            <label for="title">หัวข้อ</label>
+            <select class="form-select" id="title" name="title">
+                <option>สินค้า</option>
+                <option>เคลมสินค้า</option>
+                <option>สอบถามข้อมูลสินค้า</option>
+                <option>อื่นๆ</option>
+              </select>
+            </div>
+
+            
+            
+            <div class="form-group">
+                <label for="detail">รายละเอียด</label>
+                <textarea class="form-control" rows="5" id="detail" name="detail"> </textarea>
+            </div><br>
+
+            <button type="submit" class="btn btn-primary">Submit</button><br><br>
+
+
+        </form>
+    </div>
+
+
+
+
+{% endblock content %}
+  

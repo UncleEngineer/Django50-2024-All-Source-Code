@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+{% for t in tracks %}
+    {% if t.tracking %}
+        <h1>{{t.name}}</h1><br>
+        <h2>{{t.tracking}}</h2>
+    {% else %}
+        <h1>{{t.name}}</h1>
+        <h2>ยังไม่เริ่มจัดส่งสินค้า</h2>
+    {% endif %}
+    -------------
+{% endfor %}
+
+{% endblock content %}

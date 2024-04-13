@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %} ตอบคำถามลูกค้า {% endblock title %}
+
+{% block content %}
+
+    
+    <br><br>
+    <h2>หน้าสำหรับตอบคำถามลูกค้า</h2><br>
+
+    <div class="container">
+        <center>
+        <h3>ชื่อผู้ติดต่อ: {{record.name}}</h3>
+        <h3>email: {{record.email}}</h3>
+        <h3>หัวข้อ: {{record.title}}</h3>
+        <hr>
+        <h3>รายละเอียด</h3>
+        <p>{{record.detail}}</p><br>
+        <hr>
+        {% if record.detail_answer %}
+            <h3>(ตอบแล้ว)</h3>
+            <p>{{record.detail_answer}}</p><br>
+        {% endif %}
+
+        </center>
+
+    </div>
+    
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="askid" name="askid" value="{{record.id}}">
+            <div class="form-group">
+                <label for="detail">รายละเอียดคำตอบ</label>
+                <textarea class="form-control" rows="5" id="detail_answer" name="detail_answer"> </textarea>
+            </div><br>
+
+            <button type="submit" class="btn btn-primary">Submit</button><br><br>
+
+
+        </form>
+    </div>
+
+
+
+
+{% endblock content %}
+  
